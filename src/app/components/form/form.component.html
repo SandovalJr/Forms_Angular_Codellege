@@ -4,7 +4,8 @@
     <label for="" style="color: red;"
       >° Please enter a valid zip code for your region.</label
     >
-    <form action="">
+
+    <ng-container [formGroup]="formulario">
       <div class="row" style="background-color: #edf6fd;">
         <label for=""
           >Would you like to create a blue nile account and store this
@@ -39,6 +40,8 @@
             type="text"
             class="form-control"
             name="First_name"
+
+            formControlName="First_name"
             placeholder="First name"
           />
         </div>
@@ -214,12 +217,11 @@
           <label class="form-check-label" for="inlineRadio2">No</label>
         </div>
       </div>
-
-      <div class="col-12 mt-3">
-        <button type="submit" class="btn btn-outline-info btn-block">
-          Guardar Info
-        </button>
-      </div>
-    </form>
+    </ng-container>
+    <div class="col-12 mt-3">
+      <button type="submit" class="btn btn-outline-info btn-block">
+        Guardar Info
+      </button>
+    </div>
   </div>
 </div>
