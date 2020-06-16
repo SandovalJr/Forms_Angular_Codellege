@@ -93,6 +93,29 @@ export class FormComponent implements OnInit {
           allowDecimal: false,
         }),
       ]),
+
+      ext: new FormControl(null, [
+        RxwebValidators.minLength({ value: 3 }),
+        RxwebValidators.maxLength({ value: 5 }),
+        RxwebValidators.required(),
+
+        RxwebValidators.numeric({
+          acceptValue: NumericValueType.PositiveNumber,
+          allowDecimal: false,
+        }),
+      ]),
+
+      ZipCode: new FormControl(null, [
+        RxwebValidators.minLength({ value: 4 }),
+        RxwebValidators.maxLength({ value: 6 }),
+        RxwebValidators.required(),
+
+        RxwebValidators.numeric({
+          acceptValue: NumericValueType.PositiveNumber,
+          allowDecimal: false,
+        }),
+      ]),
+
     });
   }
 

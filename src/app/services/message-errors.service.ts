@@ -51,11 +51,11 @@ export class MessageErrorsService {
         break;
 
       case errorRecibido.hasOwnProperty("minLength"):
-        message = "Es necesario minimo 8 numeros";
+        message = "Es necesario ingresar mas numeros";
         break;
 
       case errorRecibido.hasOwnProperty("maxLength"):
-        message = "Solo se permiten 12 numeros";
+        message = "Es necesario ingresar menos numeros";
         break;
     }
     return {

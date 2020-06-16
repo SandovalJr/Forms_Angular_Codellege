@@ -173,7 +173,23 @@
         </div>
         <div class="form-group col-md-2">
           <label for="">Ext</label>
-          <input type="text" name="ext" class="form-control" />
+          <input
+            type="text"
+            name="ext"
+            class="form-control"
+            [ngClass]="{
+              'is-valid': !ValidateFormNumerico('ext').error,
+              'is-invalid': ValidateFormNumerico('ext').error
+            }"
+            formControlName="ext"
+          />
+          <div
+          *ngIf="ValidateFormNumerico('ext').error"
+          class="invalid-feedback d-block"
+        >
+          {{ ValidateFormNumerico("ext").message }}
+        </div>
+
         </div>
         <div class="form-group col-md-5">
           <label for="inputState">State</label>
@@ -204,7 +220,18 @@
             class="form-control"
             name="ZipCode"
             placeholder="Zip Code"
+            [ngClass]="{
+              'is-valid': !ValidateFormNumerico('ZipCode').error,
+              'is-invalid': ValidateFormNumerico('ZipCode').error
+            }"
+            formControlName="ZipCode"
           />
+          <div
+          *ngIf="ValidateFormNumerico('ZipCode').error"
+          class="invalid-feedback d-block"
+        >
+          {{ ValidateFormNumerico("ZipCode").message }}
+        </div>
         </div>
       </div>
 
