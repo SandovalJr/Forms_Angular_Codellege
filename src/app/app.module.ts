@@ -9,6 +9,8 @@ import { FormsModule } from "@angular/forms";
 import { FormComponent } from "./components/form/form.component";
 // forms
 import { ReactiveFormsModule } from "@angular/forms";
+// validator RXJS
+import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
 // http
 import { HttpClientModule } from "@angular/common/http";
 @NgModule({
@@ -20,6 +22,7 @@ import { HttpClientModule } from "@angular/common/http";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RxReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

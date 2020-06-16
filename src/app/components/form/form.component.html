@@ -39,20 +39,41 @@
           <input
             type="text"
             class="form-control"
+            [ngClass]="{
+              'is-valid': !ValidateForm('First_name').error,
+              'is-invalid': ValidateForm('First_name').error
+            }"
             name="First_name"
-
             formControlName="First_name"
             placeholder="First name"
           />
+          <div
+            *ngIf="ValidateForm('First_name').error"
+            class="invalid-feedback d-block"
+          >
+            {{ ValidateForm("First_name").message }}
+          </div>
         </div>
+
         <label for="" class="ml-3">* Address</label>
         <div class="col ml-3">
           <input
             type="text"
             class="form-control"
+            [ngClass]="{
+              'is-valid': !ValidateForm('Adress').error,
+              'is-invalid': ValidateForm('Adress').error
+            }"
             name="Adress"
+            formControlName="Adress"
             placeholder="Adress"
           />
+          <div
+            *ngIf="ValidateForm('Adress').error"
+            class="invalid-feedback d-block"
+          >
+            {{ ValidateForm("Adress").message }}
+          </div>
         </div>
       </div>
 
@@ -62,9 +83,20 @@
           <input
             type="text"
             class="form-control"
+            [ngClass]="{
+              'is-valid': !ValidateForm('Last_Name').error,
+              'is-invalid': ValidateForm('Last_Name').error
+            }"
+            formControlName="Last_Name"
             name="Last_Name"
             placeholder="Last name"
           />
+          <div
+            *ngIf="ValidateForm('Last_Name').error"
+            class="invalid-feedback d-block"
+          >
+            {{ ValidateForm("Last_Name").message }}
+          </div>
         </div>
         <div class="col ml-3">
           <input
@@ -82,9 +114,20 @@
           <input
             type="text"
             class="form-control"
+            [ngClass]="{
+              'is-valid': !ValidateForm('Company').error,
+              'is-invalid': ValidateForm('Company').error
+            }"
             name="Company"
+            formControlName="Company"
             placeholder="Company"
           />
+          <div
+            *ngIf="ValidateForm('Company').error"
+            class="invalid-feedback d-block"
+          >
+            {{ ValidateForm("Company").message }}
+          </div>
         </div>
         <label for="" class="ml-3">City</label>
         <div class="col ml-3">
@@ -92,15 +135,41 @@
             type="text"
             class="form-control"
             name="City"
+            [ngClass]="{
+              'is-valid': !ValidateForm('City').error,
+              'is-invalid': ValidateForm('City').error
+            }"
+            formControlName="City"
             placeholder="Aguascalientes"
           />
+          <div
+            *ngIf="ValidateForm('City').error"
+            class="invalid-feedback d-block"
+          >
+            {{ ValidateForm("City").message }}
+          </div>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group col-md-5">
           <label for="inputCity">Phone</label>
-          <input type="text" class="form-control" name="Phone" />
+          <input
+            type="text"
+            class="form-control"
+            [ngClass]="{
+              'is-valid': !ValidateFormNumerico('Phone').error,
+              'is-invalid': ValidateFormNumerico('Phone').error
+            }"
+            formControlName="Phone"
+            name="Phone"
+          />
+          <div
+            *ngIf="ValidateFormNumerico('Phone').error"
+            class="invalid-feedback d-block"
+          >
+            {{ ValidateFormNumerico("Phone").message }}
+          </div>
         </div>
         <div class="form-group col-md-2">
           <label for="">Ext</label>
@@ -219,7 +288,11 @@
       </div>
     </ng-container>
     <div class="col-12 mt-3">
-      <button type="submit" class="btn btn-outline-info btn-block">
+      <button
+        type="button"
+        (click)="MostrarFormulario()"
+        class="btn btn-outline-info btn-block"
+      >
         Guardar Info
       </button>
     </div>
