@@ -75,6 +75,18 @@ export class FormComponent implements OnInit {
         RxwebValidators.required(),
         RxwebValidators.minLength({ value: 5 }),
       ]),
+      state: new FormControl(null, [
+        RxwebValidators.pattern({
+          expression: { onlyAlpha: /^[a-zA-Z ]+$/ },
+        }),
+        RxwebValidators.required(),
+        RxwebValidators.minLength({ value: 4 }),
+      ]),
+
+      country: new FormControl(null, [
+        RxwebValidators.required(),
+      ]),
+
       City: new FormControl(null, [
         RxwebValidators.pattern({
           expression: { onlyAlpha: /^[a-zA-Z ]+$/ },
@@ -125,6 +137,8 @@ export class FormComponent implements OnInit {
   }
 
   public ValidateForm(control: string) {
+    // console.log(this.formulario.controls[control].errors);
+
     return this.MessageErrorSvr.errorMessage(
       this.formulario.controls[control].errors
     );

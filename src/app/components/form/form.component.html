@@ -184,16 +184,24 @@
             formControlName="ext"
           />
           <div
-          *ngIf="ValidateFormNumerico('ext').error"
-          class="invalid-feedback d-block"
-        >
-          {{ ValidateFormNumerico("ext").message }}
-        </div>
-
+            *ngIf="ValidateFormNumerico('ext').error"
+            class="invalid-feedback d-block"
+          >
+            {{ ValidateFormNumerico("ext").message }}
+          </div>
         </div>
         <div class="form-group col-md-5">
           <label for="inputState">State</label>
-          <select id="inputState" name="state" class="form-control">
+          <select
+            id="inputState"
+            [ngClass]="{
+              'is-valid': !ValidateForm('state').error,
+              'is-invalid': ValidateForm('state').error
+            }"
+            formControlName="state"
+            name="state"
+            class="form-control"
+          >
             <option selected>Choose...</option>
             <option>Aguascalientes</option>
             <option>CDMX</option>
@@ -227,11 +235,11 @@
             formControlName="ZipCode"
           />
           <div
-          *ngIf="ValidateFormNumerico('ZipCode').error"
-          class="invalid-feedback d-block"
-        >
-          {{ ValidateFormNumerico("ZipCode").message }}
-        </div>
+            *ngIf="ValidateFormNumerico('ZipCode').error"
+            class="invalid-feedback d-block"
+          >
+            {{ ValidateFormNumerico("ZipCode").message }}
+          </div>
         </div>
       </div>
 
@@ -245,11 +253,20 @@
             placeholder="Email"
           />
         </div>
-        <label for="" class="ml-3">* Country</label>
+        <label for="contryInput" class="ml-3">* Country</label>
         <div class="col ml-3">
-          <select name="" id="" name="country" class="form-control">
+          <select
+            id="contryInput"
+            [ngClass]="{
+              'is-valid': !ValidateForm('country').error,
+              'is-invalid': ValidateForm('country').error
+            }"
+            formControlName="country"
+            class="form-control"
+            name="country"
+          >
             <option value="">Selecciona pais</option>
-            <option value="" *ngFor="let country of CountriesName">{{
+            <option value="{{country}}" *ngFor="let country of CountriesName">{{
               country
             }}</option>
           </select>
