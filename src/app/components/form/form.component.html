@@ -40,8 +40,8 @@
             type="text"
             class="form-control"
             [ngClass]="{
-              'is-valid': !ValidateForm('First_name').error,
-              'is-invalid': ValidateForm('First_name').error
+              'is-valid': ValidateForm('First_name').error == false,
+              'is-invalid': ValidateForm('First_name').error == true
             }"
             name="First_name"
             formControlName="First_name"
@@ -61,8 +61,8 @@
             type="text"
             class="form-control"
             [ngClass]="{
-              'is-valid': !ValidateForm('Adress').error,
-              'is-invalid': ValidateForm('Adress').error
+              'is-valid': ValidateForm('Adress').error == false,
+              'is-invalid': ValidateForm('Adress').error == true
             }"
             name="Adress"
             formControlName="Adress"
@@ -84,8 +84,8 @@
             type="text"
             class="form-control"
             [ngClass]="{
-              'is-valid': !ValidateForm('Last_Name').error,
-              'is-invalid': ValidateForm('Last_Name').error
+              'is-valid': ValidateForm('Last_Name').error == false ,
+              'is-invalid': ValidateForm('Last_Name').error== true
             }"
             formControlName="Last_Name"
             name="Last_Name"
@@ -115,8 +115,8 @@
             type="text"
             class="form-control"
             [ngClass]="{
-              'is-valid': !ValidateForm('Company').error,
-              'is-invalid': ValidateForm('Company').error
+              'is-valid': ValidateForm('Company').error == false,
+              'is-invalid': ValidateForm('Company').error== true
             }"
             name="Company"
             formControlName="Company"
@@ -136,8 +136,8 @@
             class="form-control"
             name="City"
             [ngClass]="{
-              'is-valid': !ValidateForm('City').error,
-              'is-invalid': ValidateForm('City').error
+              'is-valid': ValidateForm('City').error == false ,
+              'is-invalid': ValidateForm('City').error == true
             }"
             formControlName="City"
             placeholder="Aguascalientes"
@@ -158,8 +158,8 @@
             type="text"
             class="form-control"
             [ngClass]="{
-              'is-valid': !ValidateFormNumerico('Phone').error,
-              'is-invalid': ValidateFormNumerico('Phone').error
+              'is-valid': ValidateFormNumerico('Phone').error == false,
+              'is-invalid': ValidateFormNumerico('Phone').error == true
             }"
             formControlName="Phone"
             name="Phone"
@@ -178,8 +178,8 @@
             name="ext"
             class="form-control"
             [ngClass]="{
-              'is-valid': !ValidateFormNumerico('ext').error,
-              'is-invalid': ValidateFormNumerico('ext').error
+              'is-valid': ValidateFormNumerico('ext').error == false,
+              'is-invalid': ValidateFormNumerico('ext').error == true
             }"
             formControlName="ext"
           />
@@ -195,8 +195,8 @@
           <select
             id="inputState"
             [ngClass]="{
-              'is-valid': !ValidateForm('state').error,
-              'is-invalid': ValidateForm('state').error
+              'is-valid': ValidateForm('state').error == true,
+              'is-invalid': ValidateForm('state').error == false
             }"
             formControlName="state"
             name="state"
@@ -229,8 +229,8 @@
             name="ZipCode"
             placeholder="Zip Code"
             [ngClass]="{
-              'is-valid': !ValidateFormNumerico('ZipCode').error,
-              'is-invalid': ValidateFormNumerico('ZipCode').error
+              'is-valid': ValidateFormNumerico('ZipCode').error == false,
+              'is-invalid': ValidateFormNumerico('ZipCode').error == true
             }"
             formControlName="ZipCode"
           />
@@ -258,17 +258,19 @@
           <select
             id="contryInput"
             [ngClass]="{
-              'is-valid': !ValidateForm('country').error,
-              'is-invalid': ValidateForm('country').error
+              'is-valid': ValidateForm('country').error == false,
+              'is-invalid': ValidateForm('country').error == true
             }"
             formControlName="country"
             class="form-control"
             name="country"
           >
             <option value="">Selecciona pais</option>
-            <option value="{{country}}" *ngFor="let country of CountriesName">{{
-              country
-            }}</option>
+            <option
+              value="{{ country }}"
+              *ngFor="let country of CountriesName"
+              >{{ country }}</option
+            >
           </select>
         </div>
       </div>

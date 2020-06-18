@@ -83,7 +83,7 @@ export class FormComponent implements OnInit {
         RxwebValidators.minLength({ value: 4 }),
       ]),
 
-      country: new FormControl(null, [
+      country: new FormControl("", [
         RxwebValidators.required(),
       ]),
 
@@ -131,6 +131,7 @@ export class FormComponent implements OnInit {
     });
   }
 
+
   public MostrarFormulario() {
     console.clear();
     console.log(this.formulario);
@@ -138,6 +139,7 @@ export class FormComponent implements OnInit {
 
   public ValidateForm(control: string) {
     // console.log(this.formulario.controls[control].errors);
+    if(!this.formulario.controls[control].touched) return {error:undefined}
 
     return this.MessageErrorSvr.errorMessage(
       this.formulario.controls[control].errors
@@ -145,6 +147,10 @@ export class FormComponent implements OnInit {
   }
 
   public ValidateFormNumerico(control: string) {
+    // touched: para saber ucando toco el input
+
+    if(!this.formulario.controls[control].touched) return {error:undefined}
+
     return this.MessageErrorSvrNumerico.errorMessageNumerico(
       this.formulario.controls[control].errors
     );
